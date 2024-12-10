@@ -1,5 +1,5 @@
 const currentHost = window.location.host;
-const processHost = "dev";
+const processHost = "prod";
 
 let imagesJson;
 
