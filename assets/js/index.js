@@ -1,6 +1,19 @@
-const imagesJson = await fetch("/assets/images/index.json").then((res) =>
-  res.json()
-);
+const currentHost = window.location.host;
+const processHost = "dev";
+
+let imagesJson;
+
+if (processHost === "dev") {
+  imagesJson = await fetch(`/assets/images/index.json`).then((res) =>
+    res.json()
+  );
+} else {
+  imagesJson = await fetch(`${currentHost}/assets/images/index.json`).then(
+    (res) => res.json()
+  );
+}
+
+console.log(currentHost); //
 
 // document.addEventListener("DOMContentLoaded", () => {
 //   console.log("res");
