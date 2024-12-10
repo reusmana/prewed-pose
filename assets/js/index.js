@@ -1,24 +1,10 @@
 const currentHost = window.location.host;
 const processHost = "prod";
 
-let imagesJson;
-
-if (processHost === "dev") {
-  imagesJson = await fetch(`/assets/images/index.json`).then((res) =>
-    res.json()
-  );
-} else {
-  imagesJson = await fetch(`${currentHost}/assets/images/index.json`).then(
-    (res) => res.json()
-  );
-}
-
-console.log(currentHost); //
-
-// document.addEventListener("DOMContentLoaded", () => {
-//   console.log("res");
-// });
-
+const imagesJson = await fetch(`assets/images/index.json`).then((res) =>
+  res.json()
+);
+console.log(imagesJson);
 const poseContainer = document.querySelector("#pose");
 
 imagesJson.forEach((image) => {
@@ -28,13 +14,13 @@ imagesJson.forEach((image) => {
 
   // Set the inner HTML for the div
   container.innerHTML = `
-      <img src="./assets/images/${image.images}" alt="" />
-      <div
-        class="absolute group-hover:flex hidden transition-all ease-in-out duration-500 inset-0 bg-black bg-opacity-45 text-6xl text-white font-bold justify-center items-center"
-      >
-        ${image.id}
-      </div>
-    `;
+    <img src="./assets/images/${image.images}" alt="" />
+    <div
+      class="absolute group-hover:flex hidden transition-all ease-in-out duration-500 inset-0 bg-black bg-opacity-45 text-6xl text-white font-bold justify-center items-center"
+    >
+      ${image.id}
+    </div>
+  `;
 
   // Append the container to the pose container
   poseContainer.appendChild(container);
