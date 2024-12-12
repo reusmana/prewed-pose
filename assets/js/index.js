@@ -1,6 +1,15 @@
 const currentHost = window.location.host;
 const processHost = "prod";
 
+const loading = document.querySelector("#loading");
+
+document.addEventListener("DOMContentLoaded", () => {
+  loading.classList.remove('flex')
+  loading.classList.add('hidden')
+});
+
+
+
 const imagesJson = await fetch(`assets/images/index.json`).then((res) =>
   res.json()
 );
@@ -10,7 +19,7 @@ const poseContainer = document.querySelector("#pose");
 imagesJson.forEach((image) => {
   const container = document.createElement("div");
   container.className =
-    "relative h-fit group cursor-pointer md:w-1/2 xl:w-1/3 rounded-2xl overflow-hidden";
+    "relative w-1/2 overflow-hidden cursor-pointer h-fit group sm:w-1/2 md:w-1/3 xl:w-1/4 rounded-2xl";
 
   // Set the inner HTML for the div
   container.innerHTML = `
