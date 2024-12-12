@@ -19,7 +19,7 @@ const poseContainer = document.querySelector("#pose");
 imagesJson.forEach((image) => {
   const container = document.createElement("div");
   container.className =
-    "relative w-1/2 overflow-hidden cursor-pointer h-fit group sm:w-1/2 md:w-1/3 xl:w-1/4 rounded-2xl";
+    "relative w-full overflow-hidden cursor-pointer h-fit group sm:w-1/2 md:w-1/3 xl:w-1/4 rounded-2xl";
 
   // Set the inner HTML for the div
   container.innerHTML = `
